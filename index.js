@@ -1,36 +1,36 @@
 import express from 'express';
-import cors from 'cors';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 const app = express();
 
-const allowedOrigins = [
-    'http://localhost:3000',
-    'http://localhost:5173',
-    'https://aura-indol-nu.vercel.app',  // ← your exact Vercel URL
-    process.env.CLIENT_URL,
-].filter(Boolean);
+// ── CORS — manual headers, no package needed ──
+app.use((req, res, next) => {
+    const allowedOrigins = [
+        'http://localhost:3000',
+        'http://localhost:5173',
+        'https://aura-indol-nu.vercel.app',
+        process.env.CLIENT_URL,
+    ].filter(Boolean);
 
-app.use(cors({
-    origin: (origin, callback) => {
-        // Allow requests with no origin (mobile apps, Postman)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.error('❌ CORS blocked:', origin);
-            callback(new Error(`CORS blocked: ${origin}`));
-        }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+    const origin = req.headers.origin;
 
-// Handle preflight requests
-app.options('*', cors());
+    if (!origin || allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin || '*');
+    }
+
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+    // Handle preflight
+    if (req.method === 'OPTIONS') {
+        return res.status(204).end();
+    }
+
+    next();
+});
 
 app.use('/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
@@ -40,6 +40,9 @@ import webhookRoutes from './routes/webhook.js';
 
 app.use('/api/payment', paymentRoutes);
 app.use('/webhook', webhookRoutes);
+
+// Health check
+app.get('/', (req, res) => res.json({ status: 'Aura API running ✅' }));
 
 app.listen(process.env.PORT || 4000, () =>
     console.log(`Server running on port ${process.env.PORT || 4000}`)
