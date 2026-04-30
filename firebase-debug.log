@@ -1,0 +1,56 @@
+[debug] [2026-04-27T05:45:48.465Z] ----------------------------------------------------------------------
+[debug] [2026-04-27T05:45:48.479Z] Command:       C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-04-27T05:45:48.480Z] CLI Version:   15.15.0
+[debug] [2026-04-27T05:45:48.481Z] Platform:      win32
+[debug] [2026-04-27T05:45:48.482Z] Node Version:  v20.20.0
+[debug] [2026-04-27T05:45:48.482Z] Time:          Sun Apr 26 2026 22:45:48 GMT-0700 (Pacific Daylight Time)
+[debug] [2026-04-27T05:45:48.483Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\user\Documents\elite-dating\server
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-04-27T05:48:50.528Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-27T05:48:50.530Z] > authorizing via signed-in user (davidosas011@gmail.com)
+[debug] [2026-04-27T05:48:50.536Z] Checked if tokens are valid: true, expires at: 1777270673403
+[debug] [2026-04-27T05:48:50.537Z] Checked if tokens are valid: true, expires at: 1777270673403
+[debug] [2026-04-27T05:48:50.551Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2026-04-27T05:49:03.209Z] *** [apiv2] error from fetch(https://firebase.googleapis.com/v1beta1/projects?pageSize=100, {"headers":{},"method":"GET","signal":{"reason":""}}): FetchError: request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100 failed, reason: Client network socket disconnected before secure TLS connection was established
+[debug] [2026-04-27T05:49:03.210Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
+[debug] [2026-04-27T05:49:04.680Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
+    at RetryOperation._fn (C:\Users\user\AppData\Local\nvm\v20.20.0\node_modules\firebase-tools\lib\apiv2.js:282:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2026-04-27T06:05:34.722Z] ----------------------------------------------------------------------
+[debug] [2026-04-27T06:05:34.737Z] Command:       C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-04-27T06:05:34.739Z] CLI Version:   15.15.0
+[debug] [2026-04-27T06:05:34.740Z] Platform:      win32
+[debug] [2026-04-27T06:05:34.741Z] Node Version:  v20.20.0
+[debug] [2026-04-27T06:05:34.741Z] Time:          Sun Apr 26 2026 23:05:34 GMT-0700 (Pacific Daylight Time)
+[debug] [2026-04-27T06:05:34.742Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\user\Documents\elite-dating\server
+
